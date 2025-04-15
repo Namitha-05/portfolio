@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Blogging Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #f3f4f6;
+            color: #333;
+        }
+
+        .container {
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #292b2c;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header nav ul {
+            list-style: none;
+        }
+
+        .header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            background-image: url('https://source.unsplash.com/1600x600/?blogging,nature');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            margin-bottom: 1rem;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .btn {
+            padding: 0.75rem 2rem;
+            background-color: #fff;
+            color: #292b2c;
+            text-decoration: none;
+            font-size: 1.25rem;
+            border-radius: 5px;
+        }
+
+        .about, .latest-posts, .contact {
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .about p, .contact p {
+            width: 60%;
+            margin: 1rem auto;
+        }
+
+        .latest-posts {
+            background-color: #fff;
+            padding: 3rem 0;
+        }
+
+        .latest-posts h2 {
+            margin-bottom: 2rem;
+        }
+
+        .posts {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .post-item {
+            width: 30%;
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .post-item img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .post-item h3 {
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .post-item p {
+            margin-bottom: 1.5rem;
+        }
+
+        .post-item a {
+            color: #ff7e5f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact form input, .contact form textarea {
+            width: 60%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact form button {
+            padding: 1rem 2rem;
+            background-color: #ff7e5f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .footer {
+            background-color: #292b2c;
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        #success-message {
+            color: green;
+            margin-top: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1>BlogHaven</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#latest-posts">Latest Posts</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h2>Welcome to Our Blog</h2>
+            <p>Inspire, Write, and Share Your Thoughts with the World</p>
+            <a href="#latest-posts" class="btn">Explore Posts</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Our Platform</h2>
+            <p>Our blogging platform is a hub for thought-provoking content, creative writing, and a diverse range of topics. Whether you're here to read, write, or share, our platform provides the perfect space for your ideas to flourish.</p>
+        </div>
+    </section>
+
+    <!-- Latest Posts Section -->
+    <section id="latest-posts" class="latest-posts">
+        <div class="container">
+            <h2>Latest Posts</h2>
+            <div class="posts">
+                <div class="post-item">
+                    <img src="down1.jpg" alt="Post One">
+                    <h3>How to Start a Successful Blog in 2024</h3>
+                    <p>Blogging in 2024 is more exciting than ever, with new trends and tools constantly emerging. In this post, we break down the step-by-step process of starting a blog—from choosing the right platform to publishing your first post. Whether you're new to blogging or looking to refresh your strategy, this guide is packed with actionable tips.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="post-item">
+                    <img src="down2.jpg" alt="Post Two">
+                    <h3>Top 10 Social Media Strategies to Promote Your Blog
+                    </h3>
+                    <p>Social media is a powerful tool for driving traffic to your blog. In this article, we explore the top social media strategies that can help you grow your audience, engage with followers, and increase visibility. From Instagram to LinkedIn, discover how to harness the power of different platforms..</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="post-item">
+                    <img src="down3.jpg" alt="Post Three">
+                    <h3>How to Build a Content Calendar for Consistent Posting</h3>
+                    <p>Consistency is key to growing a successful blog, and a well-organized content calendar can help you achieve it. Learn how to create and manage a content schedule that keeps you on track, helps plan posts in advance, and ensures your blog remains active and engaging all year round.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Want to contribute or have any questions? Feel free to reach out using the form below.</p>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Your Name">
+                <div id="name-error" class="error">Please enter your name.</div>
+                
+                <input type="email" id="email" placeholder="Your Email">
+                <div id="email-error" class="error">Please enter a valid email address.</div>
+                
+                <textarea id="message" placeholder="Your Message"></textarea>
+                <div id="message-error" class="error">Please enter your message.</div>
+                
+                <button type="submit">Submit</button>
+                <div id="success-message"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Your Blogging Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            let isValid = true;
+
+            // Validate name
+            if (name === '') {
+                document.getElementById('name-error').style
