@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsible Fertilizer Ordering</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f8ff;
+        }
+        .header {
+            background: linear-gradient(45deg, #34ace0, #33d9b2);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .header p {
+            font-size: 20px;
+            font-weight: 300;
+        }
+        .login-form, .order-form {
+            background: white;
+            padding: 40px;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .login-form h2, .order-form h2 {
+            color: #34ace0;
+            margin-bottom: 30px;
+        }
+        .btn-login, .btn-order {
+            background: #34ace0;
+            color: white;
+        }
+        .fertilizer-options img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+        }
+        .footer {
+            background: #34ace0;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Order</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+    </div> -->
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Welcome to Responsible Fertilizer Ordering</h1>
+        <p>Choose from a variety of eco-friendly fertilizers to boost your crop yield</p>
+    </div>
+
+    <!-- Login Form Section -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-form">
+                    <h2>Login to Your Account</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="emailLogin">Email address</label>
+                            <input type="email" class="form-control" id="emailLogin" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordLogin">Password</label>
+                            <input type="password" class="form-control" id="passwordLogin" placeholder="Enter your password">
+                        </div>
+                        <button type="submit" class="btn btn-login btn-block">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fertilizer Options Section -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="fertilizer-options">
+                    <img src="https://via.placeholder.com/350x250?text=Organic+Fertilizer" alt="Organic Fertilizer">
+                    <h3 class="mt-3">Organic Fertilizer</h3>
+                    <p>Boost your soil's health naturally with our organic fertilizers.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="fertilizer-options">
+                    <img src="https://via.placeholder.com/350x250?text=Chemical+Fertilizer" alt="Chemical Fertilizer">
+                    <h3 class="mt-3">Chemical Fertilizer</h3>
+                    <p>Ensure high crop yield with our scientifically formulated chemical fertilizers.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="fertilizer-options">
+                    <img src="https://via.placeholder.com/350x250?text=Bio-Fertilizer" alt="Bio Fertilizer">
+                    <h3 class="mt-3">Bio-Fertilizer</h3>
+                    <p>Eco-friendly and effective, our bio-fertilizers are the future of farming.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Form Section -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="order-form">
+                    <h2>Place Your Fertilizer Order</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="fertilizerType">Select Fertilizer Type</label>
+                            <select class="form-control" id="fertilizerType">
+                                <option>Organic Fertilizer</option>
+                                <option>Chemical Fertilizer</option>
+                                <option>Bio-Fertilizer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity (in Kg)</label>
+                            <input type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+                        </div>
+                        <button type="submit" class="btn btn-order btn-block">Order Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2024 Responsible Fertilizer Co. All Rights Reserved.</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Form</title>
+    <style>
+        body {
+            margin-top: 200px;;
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            margin: 50px auto;
+            width: 300px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .form-container:before {
+            content: "🎉🎊✨";
+            font-size: 60px;
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 8px 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #fafafa;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        .emoji-container {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Register for the Event</h2>
+        <form id="eventForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <div class="error" id="nameError"></div>
+
+            <!-- <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+            <div class="error" id="phoneError"></div>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <div class="error" id="emailError"></div> -->
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <div class="error" id="passwordError"></div>
+
+            <input type="submit" value="Submit">
+        </form>
+        <div class="emoji-container">
+            🎈🎁🎀🎵
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('eventForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let isValid = true;
+
+            // Name validation (only alphabets)
+            const name = document.getElementById('name').value;
+            const nameError = document.getElementById('nameError');
+            if (!/^[A-Za-z ]+$/.test(name)) {
+                nameError.textContent = "Name should contain only alphabets.";
+                isValid = false;
+            } else {
+                nameError.textContent = "";
+            }
+
+            // Phone number validation (only numbers)
+            // const phone = document.getElementById('phone').value;
+            // const phoneError = document.getElementById('phoneError');
+            // if (!/^[0-9]+$/.test(phone)) {
+            //     phoneError.textContent = "Phone number should contain only numbers.";
+            //     isValid = false;
+            // } else {
+            //     phoneError.textContent = "";
+            // }
+
+            // // Email validation (at least 8 characters, alphanumeric, and special characters)
+            // const email = document.getElementById('email').value;
+            // const emailError = document.getElementById('emailError');
+            // if (email.length < 8 || !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email)) {
+            //     emailError.textContent = "Email should be at least 8 characters long and valid.";
+            //     isValid = false;
+            // } else {
+            //     emailError.textContent = "";
+            // }
+
+            // Password validation (maximum 5 numbers)
+            const password = document.getElementById('password').value;
+            const passwordError = document.getElementById('passwordError');
+            if (!/^\d{1,5}$/.test(password)) {
+                passwordError.textContent = "Password should contain only up to 5 numbers.";
+                isValid = false;
+            } else {
+                passwordError.textContent = "";
+            }
+
+            if (isValid) {
+                alert('Your registration is successful! 🎉');
+                window.location.href = 'success.html';
+            }
+        });
+    </script>
+</body>
+</html>

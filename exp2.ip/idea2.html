@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Form</title>
+</head>
+<body>
+    <center>
+    <h2>Event Registration</h2>
+    <form id="eventForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <span id="nameError" style="color:red"></span><br>
+
+        <label for="phone">Phone:</label><br>
+        <input type="tel" id="phone" name="phone"><br>
+        <span id="phoneError" style="color:red"></span><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <span id="emailError" style="color:red"></span><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <span id="passwordError" style="color:red"></span><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+    </center>
+
+    <script>
+        document.getElementById('eventForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting
+            let hasError = false;
+
+            // Clear previous error messages
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('phoneError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+
+            // Name validation: only alphabets
+            const name = document.getElementById('name').value.trim();
+            if (name === '' || !/^[a-zA-Z ]+$/.test(name)) {
+                document.getElementById('nameError').textContent = 'Name should contain only alphabets.';
+                hasError = true;
+            }
+
+            // Phone validation: only numbers
+            const phone = document.getElementById('phone').value.trim();
+            if (phone === '' || !/^\d{10}$/.test(phone)) {
+                document.getElementById('phoneError').textContent = 'Phone number should contain exactly 10 digits.';
+                hasError = true;
+            }
+
+            // Email validation: valid email format
+            const email = document.getElementById('email').value.trim();
+            if (email === '' || !/^\S+@\S+\.\S+$/.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+                hasError = true;
+            }
+
+            // Password validation: minimum 5 characters
+            const password = document.getElementById('password').value.trim();
+            if (password === '' || password.length < 5) {
+                document.getElementById('passwordError').textContent = 'Password should be at least 5 characters long.';
+                hasError = true;
+            }
+
+            // If no errors, submit the form (for now, just an alert)
+            if (!hasError) {
+                alert('Form submitted successfully!');
+                // You can add form submission logic here (e.g., sending data to a server)
+            }
+        });
+    </script>
+</body>
+</html>
+

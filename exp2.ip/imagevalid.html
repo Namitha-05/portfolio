@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-container img {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .login-container img.selected {
+            border-color: #4caf50;
+        }
+
+        .login-container .emoji {
+            font-size: 50px;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .login-container button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login to Hospital Management</h2>
+    
+    <div id="captcha">
+        <p>Select the heart to prove you are human:</p>
+        <img src="https://i.imgur.com/tGbaZCY.png" alt="Heart" data-correct="true">
+        <img src="https://i.imgur.com/WrY34Cv.png" alt="Star" data-correct="false">
+        <img src="https://i.imgur.com/kR4oZ5C.png" alt="Circle" data-correct="false">
+    </div>
+
+    <div class="emoji" id="emoji">😊</div>
+
+    <button onclick="validateCaptcha()">Validate</button>
+</div>
+
+<script>
+    // Handle image selection
+    let selectedImage = null;
+
+    document.querySelectorAll('#captcha img').forEach(img => {
+        img.addEventListener('click', function() {
+            // Remove selected class from other images
+            document.querySelectorAll('#captcha img').forEach(i => i.classList.remove('selected'));
+
+            // Add selected class to clicked image
+            this.classList.add('selected');
+
+            // Store the selected image
+            selectedImage = this;
+        });
+    });
+
+    // Validate the captcha
+    function validateCaptcha() {
+        if (selectedImage && selectedImage.dataset.correct === "true") {
+            document.getElementById('emoji').style.display = 'block'; // Show the emoji
+        } else {
+            alert('Validation failed! Please try again.');
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="services.html">
+    <title>Event Management Platform</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #d7b8cc;
+        }
+        .content-section {
+            display: none;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+        .button-group {
+            text-align: center;
+            margin: 20px;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #fff;
+            background-color: #5a67d8;
+        }
+        .button-group button:hover {
+            background-color: #4c51bf;
+        }
+
+        /* Section specific styles */
+        #catering-section {
+            background-color: #e2f7e2;
+        }
+        #venue-booking-section {
+            background-color: #fce4ec;
+        }
+        #event-planning-section {
+            background-color: #e3f2fd;
+        }
+    </style>
+</head>
+<body>
+    <center>
+         <p style="color: blueviolet;font-size:30px;"><b>CLICK TO KNOW THE SERVICES WE PROVIDE</b></p>
+    </center>
+    <br>
+    <br>
+    <br>
+    <div class="button-group">
+        <button onclick="showSection('catering-section')">Catering</button>
+        <button onclick="showSection('venue-booking-section')">Venue Booking</button>
+        <button onclick="showSection('event-planning-section')">Event Planning</button>
+    </div>
+
+    <div id="catering-section" class="content-section">
+        <h2>Exquisite Catering Services</h2>
+        <p>Our catering services are designed to provide a gourmet experience tailored to your event’s needs. From intimate gatherings to grand celebrations, our team will ensure your guests enjoy unforgettable meals.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cuisine Type</th>
+                    <th>Description</th>
+                    <th>Sample Dishes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Continental</td>
+                    <td>A selection of refined European dishes, ideal for formal events.</td>
+                    <td>Roasted meat Tenderloin, Grilled Asparagus, Tiramisu</td>
+                </tr>
+                <tr>
+                    <td>Asian Fusion</td>
+                    <td>A blend of traditional Asian flavors with a modern twist.</td>
+                    <td>Sushi Rolls, Thai Green Curry, Mango Sticky Rice</td>
+                </tr>
+                <tr>
+                    <td>Vegan & Organic</td>
+                    <td>Delicious and nutritious plant-based meals made with organic ingredients.</td>
+                    <td>Quinoa Salad, Stuffed Bell Peppers, Avocado Mousse</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Contact us to discuss your dietary preferences, and we’ll craft a menu that delights your guests.</p>
+    </div>
+
+    <div id="venue-booking-section" class="content-section">
+        <h2>Venue Booking Made Easy</h2>
+        <p>Choose from our curated selection of stunning venues that match the theme and scale of your event. We simplify the booking process so you can focus on the details that matter most.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Venue Type</th>
+                    <th>Capacity</th>
+                    <th>Special Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ballroom</td>
+                    <td>Up to 500 guests</td>
+                    <td>Crystal chandeliers, hardwood floors, stage area</td>
+                </tr>
+                <tr>
+                    <td>Garden</td>
+                    <td>Up to 300 guests</td>
+                    <td>Lush greenery, outdoor lighting, water features</td>
+                </tr>
+                <tr>
+                    <td>Rooftop</td>
+                    <td>Up to 200 guests</td>
+                    <td>Panoramic city views, modern decor, bar area</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Our team will assist with venue visits, contract negotiations, and ensuring all logistics are handled seamlessly.</p>
+    </div>
+
+    <div id="event-planning-section" class="content-section">
+        <h2>Expert Event Planning</h2>
+        <p>Our event planning services ensure your vision is executed flawlessly. From concept to execution, we handle all the details so you can enjoy a stress-free event.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Planning Stage</th>
+                    <th>Description</th>
+                    <th>Outcome</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Concept Development</td>
+                    <td>We work with you to create a unique event concept that aligns with your vision.</td>
+                    <td>A customized event plan that resonates with your audience.</td>
+                </tr>
+                <tr>
+                    <td>Vendor Coordination</td>
+                    <td>We liaise with vendors to ensure all services are seamlessly integrated.</td>
+                    <td>A cohesive event where every detail is executed perfectly.</td>
+                </tr>
+                <tr>
+                    <td>On-Site Management</td>
+                    <td>Our team will be on-site to oversee the event and manage any issues that arise.</td>
+                    <td>A smooth, stress-free event experience.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Let us handle the details, ensuring your event is a memorable success.</p>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('.content-section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            // Show the clicked section
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

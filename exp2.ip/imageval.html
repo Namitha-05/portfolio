@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Validation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #ffebcd;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .form-container h2 {
+            color: #ff4500;
+        }
+
+        .image-selection {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .image-selection img {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+
+        .image-selection img.selected {
+            border-color: #32cd32;
+            box-shadow: 0 0 10px #32cd32;
+        }
+
+        .result-emoji {
+            font-size: 50px;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Are you Human? 🤖</h2>
+        <p>Select all images with a **<strong>Tree</strong>**:</p>
+
+        <div class="image-selection">
+            <!-- Replace 'tree.jpg', 'car.jpg', etc., with the correct path to your images -->
+            <img src="img\emi40.jpg" alt="Tree" data-answer="correct">
+            <img src="img\emi43.jpg" alt="Car" data-answer="wrong">
+            <img src="img\emi42.jpg" alt="House" data-answer="wrong">
+            <br>
+            <img src="img\emi40.jpg" alt="Tree" data-answer="correct">
+            <img src="img\emi41.jpg" alt="Cat" data-answer="wrong">
+            <img src="img\emi40.jpg" alt="Tree" data-answer="correct">
+        </div>
+
+        <button onclick="validateSelection()">Submit</button>
+
+        <div class="result-emoji" id="resultEmoji"></div>
+    </div>
+
+    <script>
+        // Add a click event to select or deselect an image
+        const images = document.querySelectorAll('.image-selection img');
+        images.forEach(img => {
+            img.addEventListener('click', function () {
+                img.classList.toggle('selected');
+            });
+        });
+
+        function validateSelection() {
+            let correctSelection = 0;
+            let wrongSelection = 0;
+
+            images.forEach(img => {
+                if (img.classList.contains('selected')) {
+                    if (img.dataset.answer === 'correct') {
+                        correctSelection++;
+                    } else {
+                        wrongSelection++;
+                    }
+                }
+            });
+
+            const resultEmoji = document.getElementById('resultEmoji');
+            if (correctSelection === 3 && wrongSelection === 0) {
+                resultEmoji.textContent = 'You are right👍'; // Thumbs up emoji
+                resultEmoji.style.color = '#32cd32';
+            } else {
+                resultEmoji.textContent = 'Please try again👎'; // Thumbs down emoji
+                resultEmoji.style.color = '#ff4500';
+            }
+        }
+    </script>
+</body>
+</html>

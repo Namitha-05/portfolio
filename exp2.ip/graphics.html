@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Drawing Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: rgb(219, 176, 120);
+        }
+        canvas {
+            border: 1px solid black;
+            cursor: crosshair;
+        }
+        #controls {
+            margin-bottom: 20px;
+        }
+        button {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: blue;">Event Management Drawing Tool</h1>
+    <h3 style="color:rgb(40, 63, 105)">You can explore your own event plant here!!!</h3>
+    <div id="controls">
+        <button onclick="setShape('rectangle')">Draw Rectangle</button>
+        <button onclick="setShape('circle')">Draw Circle</button>
+        <button onclick="clearCanvas()">Clear Canvas</button>
+    </div>
+    <canvas id="drawingCanvas" width="800" height="600"></canvas>
+
+    <script>
+        const canvas = document.getElementById('drawingCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let currentShape = 'rectangle';
+        let isDrawing = false;
+        let startX = 0;
+        let startY = 0;
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', drawShape);
+        canvas.addEventListener('mouseup', stopDrawing);
+
+        function setShape(shape) {
+            currentShape = shape;
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            [startX, startY] = [e.offsetX, e.offsetY];
+        }
+
+        function drawShape(e) {
+            if (!isDrawing) return;
+
+            const [endX, endY] = [e.offsetX, e.offsetY];
+            
+            if (currentShape === 'rectangle') {
+                const width = endX - startX;
+                const height = endY - startY;
+                ctx.fillStyle = '#f00'; // Red color for rectangle
+                ctx.fillRect(startX, startY, width, height);
+            } else if (currentShape === 'circle') {
+                const radius = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2)) / 2;
+                ctx.beginPath();
+                ctx.arc(startX, startY, radius, 0, 2 * Math.PI);
+                ctx.fillStyle = '#00f'; // Blue color for circle
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    </script>
+</body>
+</html>

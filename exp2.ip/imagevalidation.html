@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Platform</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0e68c; /* Light golden color background */
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+        .emoji {
+            font-size: 50px;
+            margin: 10px 0;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Human or Robot?</h2>
+        <div class="emoji">
+            🧑‍💻 or 🤖?
+        </div>
+        <p>Select the human emoji:</p>
+        <div>
+            <input type="radio" name="emoji" value="human"> 🧑‍💻
+            <input type="radio" name="emoji" value="robot"> 🤖
+        </div>
+        <button class="submit-btn" onclick="validate()">Submit</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function validate() {
+            const result = document.getElementById('result');
+            const selectedEmoji = document.querySelector('input[name="emoji"]:checked');
+            
+            if (selectedEmoji && selectedEmoji.value === 'human') {
+                result.innerHTML = '👍 You are a human!';
+                result.style.color = 'green';
+            } else {
+                result.innerHTML = '👎 Oops! Try again.';
+                result.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
